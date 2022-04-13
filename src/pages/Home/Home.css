@@ -37,7 +37,6 @@
 
 .headerBg::after {
     background-image: url(../../Images/bg.png);
-
     background-size: 100% 100%;
     min-height: 700px;
     content: " ";
@@ -52,8 +51,9 @@
 
 
 .btn {
+    width: 60%;
+	  margin: 15px auto;
     margin-right: 320px;
-
     font-size: 20px;
     height: 50px;
     border: none;
@@ -442,7 +442,7 @@
     font-family: "Lato",sans-serif;
     font-size: 18px;
     outline: medium none;
-    padding: 20px 35px;
+    padding: 14px 35px;
     text-decoration: none;
     text-transform: uppercase;
 }
