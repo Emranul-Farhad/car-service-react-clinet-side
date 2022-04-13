@@ -4,8 +4,8 @@ import './review.css'
 const Review = () => {
     return (
         <div>
-            <div class="container text-center">
-                <h1>Popula Products</h1>
+            <div class="container text-center review">
+                {/* <h1>Popula Products</h1> */}
                 {/* <span>Create With <i class="zmdi zmdi-favorite red"></i>  By: <strong>Deni Kurniawan</strong> From:</span> */}
             </div>
 
@@ -28,10 +28,6 @@ const Review = () => {
                                     <div class="description-prod">
                                         <p>Description Product tell me how to change playlist height size like 600px in html5 player. player good work now check this link</p>
                                     </div>
-                                    <div class="card-footer">
-                                        <div class="wcf-left"><span class="price">Rp500.000</span></div>
-                                        <div class="wcf-right"><a href="#" class="buy-btn"><i class="zmdi zmdi-shopping-basket"></i></a></div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -46,12 +42,12 @@ const Review = () => {
                                         <h3>Car Brake System</h3>
                                     </div>
                                     <div class="description-prod">
-                                        <p>Description Product tell me how to change playlist height size like 600px in html5 player. player good work now check this link</p>
+                                        <p>Description Product tell me how to change playlist height size like 600px in html5 player. player good work now check this link Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, perspiciatis </p>
                                     </div>
-                                    <div class="card-footer">
+                                    {/* <div class="card-footer">
                                         <div class="wcf-left"><span class="price">Rp500.000</span></div>
                                         <div class="wcf-right"><a href="#" class="buy-btn"><i class="zmdi zmdi-shopping-basket"></i></a></div>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>

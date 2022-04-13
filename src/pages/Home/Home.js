@@ -14,9 +14,10 @@ import Wash from './washShow/Wash';
 const Home = () => {
     return (
         <>
-            <div className='container headerBg'>
+            <div className=' headerBg'>
                 <Header></Header>
-                <div className="row display-flex align-items-center">
+                <div className='container'> 
+                <div className="row display-flex align-items-center ">
                     <div className="col-md-5 ">
                         <h1 className='headerText'>Repair Yours car <br /> Hastle Free </h1>
                         <h1 className='headerText'>CERAMIC TOP COAT  PROTECTION </h1>
@@ -29,6 +30,7 @@ const Home = () => {
                         <img className='w-100' src={image} alt="" />
                     </div>
                 </div>
+               </div>
             </div>
             <div>
                 <UnHeader></UnHeader>
@@ -47,7 +49,7 @@ const Home = () => {
             <div className='pricingsection'>
                 <Pricing></Pricing>
             </div>
-            <div>
+            <div className='reviewsection'>
                 <Review></Review>
             </div>
         </>
