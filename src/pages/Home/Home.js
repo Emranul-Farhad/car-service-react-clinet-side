@@ -2,6 +2,7 @@ import React from 'react';
 import { Carousel, CarouselItem } from 'react-bootstrap';
 import image from '../../Images/banner-img.png'
 import Header from '../../Shared pages/Headr/Header';
+import Review from '../clientReview/review';
 import Choose from './chooselPlane/Choose';
 import "./Home.css"
 import Pricing from './Pricing/Pricing';
@@ -45,6 +46,9 @@ const Home = () => {
             </div>
             <div className='pricingsection'>
                 <Pricing></Pricing>
+            </div>
+            <div>
+                <Review></Review>
             </div>
         </>
     );
