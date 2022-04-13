@@ -201,10 +201,17 @@
 }
 
 .chootext {
+  margin-top: 20px;
     text-align: center;
 }
 
-.chooseplane {
+.chooseplane img:hover{
+  transform: scale(1.2);
+  transition: transform ease-in-out .4s;
+}
+
+.chooseplane{
+  margin-top: 90px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 }
