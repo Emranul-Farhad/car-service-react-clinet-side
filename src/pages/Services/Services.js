@@ -20,9 +20,9 @@ const Services = (props) => {
                     <a class="blog-btn" href="#"> Book Now  </a>
                     </div> */}
                 </div>
-                <div className='servieBUTTON'>
-                    <a class="blog-btn" href="#"> Book Now  </a>
-                    </div>
+                <div className='servieBUTTON'>                   
+                    <button className='blog-btn' >Details </button>
+                </div>
             </div>
         </div>
     );

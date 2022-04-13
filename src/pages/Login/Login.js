@@ -1,9 +1,11 @@
 import React from 'react';
+import Header from '../../Shared pages/Headr/Header';
 
 const Login = () => {
     return (
         <div>
-            <p>login</p>
+            <Header></Header>
+            
         </div>
     );
 };

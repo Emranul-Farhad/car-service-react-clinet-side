@@ -30,6 +30,7 @@
 }
 
 .collecting-details{
+    padding: 10px;
     padding-bottom: 25px;
     font-weight: 400;
     font-family: 'Times New Roman', Times, serif;
@@ -40,8 +41,14 @@
     margin-top: -39px;
 }
 
-.servieBUTTON a{
-    padding: 15px 30px;
+button{
+    border: none;
+}
+
+.servieBUTTON button{
+    font-family: cursive;
+    font-weight: 800;
+    padding: 15px 60px;
 }
 
 .servieBUTTON a:hover{
