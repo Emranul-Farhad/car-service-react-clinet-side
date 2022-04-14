@@ -6,6 +6,7 @@ import Home from './pages/Home/Home';
 import Service from './pages/Service/Service';
 import Login from './pages/Login/Login';
 import SerDetials from './pages/servicedetails/SerDetials';
+import Require from './Authentication/Require';
 // import Experts from './Experts/Experts';
 
 function App() {
@@ -15,7 +16,9 @@ function App() {
         <Route path='/' element={<Home></Home>} ></Route>
         <Route path='/services' element={<Service></Service>} ></Route>
         <Route path='/login' element={<Login></Login>} ></Route>
-        <Route path='/service-details' element={<SerDetials></SerDetials>} ></Route>
+        <Route path='/service-details' element={
+          <Require> <SerDetials></SerDetials> </Require>
+        } ></Route>
         {/* <Route path='/Experts' element={<Experts></Experts>} ></Route> */}
       </Routes>
     </div>

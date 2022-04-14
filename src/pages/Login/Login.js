@@ -3,7 +3,8 @@ import Header from '../../Shared pages/Headr/Header';
 import './Login.css'
 import { useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebaseKey/Firekey';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import Loader from '../../Loader/Loader';
 
 
 
@@ -12,6 +13,7 @@ import { useNavigate } from 'react-router-dom';
 const Login = () => {
 
     const navigate = useNavigate()
+    const [approve , setApprove] = useState(false)
     const [errors, setError] = useState("")
     const [email, setEmai] = useState("")
     const [password, setPassword] = useState("")
@@ -45,11 +47,18 @@ const Login = () => {
         setConpass(event.target.value)
     }
 
-if(user){
-    navigate("/")
-}
+    const location = useLocation()
+  let from = location.state?.from?.pathname || "/";
+
+
+  if (user) {
+    navigate(from, { replace: true })
+  }
 
     const signuphandel = event => {
+        if(password.length < 5){
+            return alert("hba na")
+        }
         event.preventDefault()
         if (password !== conpass) {
            return setError("password don't matched ")
@@ -69,9 +78,15 @@ if(user){
         setPasswords(event.target.value)
     }
 
-    if(users){
-        navigate('/')
+    const locationLog = useLocation()
+    let fromL = locationLog.state?.from?.pathname || "/";
+  
+  
+    if (users) {
+      navigate(fromL, { replace: true })
     }
+
+    
     const handelLogin = event => {
         if(PassworD === ''){
             setError('must need passwords')
@@ -89,7 +104,7 @@ if(user){
             <div className='d-flex justify-content-center loginMain'>
 
          {
-             loading ? <p>Loading...</p> : 
+             loading ? <Loader></Loader> : 
          
                 <div className="main">
                     <input type="checkbox" id="chk" aria-hidden="true" />
@@ -99,7 +114,7 @@ if(user){
                             <label for="chk" aria-hidden="true">Sign up</label>
                             <input onBlur={getemail} type="email" name="email" placeholder="Email" required />
                             <input onBlur={getpass} type="password" name="pswd" placeholder="Password" required />
-                            <input onBlur={confirmpass} type="password" name="txt" placeholder="Confirm Password" required />
+                            <input onBlur={confirmpass} type="password" name="txt" placeholder="Confirm Password" required />                         
                             <p style={{ color: 'red' }} > {errors} </p>
                             <button className='loginButton' >Sign up</button>
                         </form>
