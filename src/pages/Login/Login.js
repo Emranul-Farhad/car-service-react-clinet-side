@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import Header from '../../Shared pages/Headr/Header';
 import './Login.css'
-import { useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebaseKey/Firekey';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Loader from '../../Loader/Loader';
+import toast from 'react-hot-toast';
+// import toast, { Toaster } from 'react-hot-toast';
 
 
 
@@ -33,6 +35,10 @@ const Login = () => {
         error,
       ] = useSignInWithEmailAndPassword(auth);
 
+      const [sendPasswordResetEmail, sending, reseterror] = useSendPasswordResetEmail(
+        auth
+      );
+
     const getemail = event => {
         setEmai(event.target.value)
         console.log(event.target.value);
@@ -51,7 +57,11 @@ const Login = () => {
   let from = location.state?.from?.pathname || "/";
 
 
+
   if (user) {
+    toast('successfully done!', {id : "signup"}  , {
+        icon: '👏', 
+      });
     navigate(from, { replace: true })
   }
 
@@ -70,6 +80,10 @@ const Login = () => {
 
     }
 
+// handel sign up end here .
+// login started from here
+
+
     const EmailLogin = event => {
         setEmaiL(event.target.value)
     }
@@ -81,22 +95,35 @@ const Login = () => {
     const locationLog = useLocation()
     let fromL = locationLog.state?.from?.pathname || "/";
   
-  
+
     if (users) {
+        toast.success('Successfully login done', {id : "login"} )
       navigate(fromL, { replace: true })
     }
 
     
-    const handelLogin = event => {
+    const handelLogin = (event) => {
+        event.preventDefault()
         if(PassworD === ''){
             setError('must need passwords')
         }
         else { 
-        event.preventDefault()
         signInWithEmailAndPassword(Email , PassworD)
         }
     }
+
     
+    const forgetPassword = async () =>{
+        if(Email === ''){
+           return toast.error('input your email' , {id : 'resetEmailinput'})
+        }
+        await sendPasswordResetEmail(Email);
+        toast.success('Email send')
+    }
+    
+
+
+
     return (
         <div>
             <Header></Header>
@@ -125,6 +152,7 @@ const Login = () => {
                             <label for="chk" aria-hidden="true">Login</label>
                             <input onBlur={EmailLogin} type="email" name="email" placeholder="Email" required />
                             <input onBlur={PassLogin}  type="password" name="pswd" placeholder="Password" required />  
+                           <div className='forget'> <p onClick={ forgetPassword} >forget passwords</p> </div>
                             <p style={{ color: 'red' }} > {errors} </p>
                             {
                                 error && <p>  {error.message} </p> 

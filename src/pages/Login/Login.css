@@ -90,3 +90,9 @@ input:not([type=checkbox]){
     margin-top: 100px;
 }
 
+.forget{
+	color: black;
+	cursor: pointer;
+	font-family: cursive;
+	margin-right: 203px;
+}

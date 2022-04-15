@@ -7,11 +7,14 @@ import Service from './pages/Service/Service';
 import Login from './pages/Login/Login';
 import SerDetials from './pages/servicedetails/SerDetials';
 import Require from './Authentication/Require';
+import  { Toaster } from 'react-hot-toast';
 // import Experts from './Experts/Experts';
 
 function App() {
   return (
     <div className="App">
+      <Toaster   position="top-right"
+  reverseOrder={false}></Toaster>
       <Routes>
         <Route path='/' element={<Home></Home>} ></Route>
         <Route path='/services' element={<Service></Service>} ></Route>
