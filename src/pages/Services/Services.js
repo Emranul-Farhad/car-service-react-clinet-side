@@ -3,9 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import './Serivces.css'
 
 const Services = (props) => {
-    const { name, price, id, img, description } = props.service
+    const { name, price,  _id, img, description } = props.service
 
     const navigates = useNavigate()
+
+    // const ser = _id => {
+    //     navigates(`/service-details/${_id}`)
+    //     navigates('/service-details')
+    // }
 
     return (
         <div>
@@ -24,7 +29,7 @@ const Services = (props) => {
                     </div> */}
                 </div>
                 <div className='servieBUTTON'>                   
-                    <button onClick={()=> navigates('/service-details')} className='blog-btn' >Details </button>
+                    <button onClick={()=> navigates(`/service-details/${_id}`) } className='blog-btn' >Details </button>
                 </div>
             </div>
         </div>

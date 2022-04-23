@@ -8,6 +8,7 @@ import Login from './pages/Login/Login';
 import SerDetials from './pages/servicedetails/SerDetials';
 import Require from './Authentication/Require';
 import  { Toaster } from 'react-hot-toast';
+import Manage from './pages/manage/Manage';
 // import Experts from './Experts/Experts';
 
 function App() {
@@ -19,7 +20,8 @@ function App() {
         <Route path='/' element={<Home></Home>} ></Route>
         <Route path='/services' element={<Service></Service>} ></Route>
         <Route path='/login' element={<Login></Login>} ></Route>
-        <Route path='/service-details' element={
+        <Route path='/manage' element={<Manage></Manage>}  ></Route>
+        <Route path='/service-details/:id' element={
           <Require> <SerDetials></SerDetials> </Require>
         } ></Route>
         {/* <Route path='/Experts' element={<Experts></Experts>} ></Route> */}

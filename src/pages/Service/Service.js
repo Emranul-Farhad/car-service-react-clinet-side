@@ -11,7 +11,7 @@ const [loading] = useAuthState(auth)
 const [services , setSerives] = useState([])
  
 useEffect( () => {
-        fetch("service.json")
+        fetch("http://localhost:8000/services")
         .then(res => res.json())
         .then( data => setSerives(data))
     }, [] )
@@ -26,7 +26,7 @@ if(loading){
             <div className='serviceRow'>  
 
             {
-                services.map( service => <Services service={service} key={service.id} ></Services> )
+                services.map( service => <Services service={service} key={service._id} ></Services> )
             }
 
             </div>

@@ -11,7 +11,7 @@ const Header = () => {
 
     const logout = () => {
         signOut(auth);
-      };
+    };
 
     return (
         <nav>
@@ -24,12 +24,19 @@ const Header = () => {
 
                     <NavLink className={({ isActive }) => (isActive ? "active" : "nav-list")} to="/services" > services</NavLink>
 
-                    <NavLink  className={({ isActive }) => (isActive ? "active" : "nav-list")} to="/Experts" > Our Expert</NavLink>
+                    <NavLink className={({ isActive }) => (isActive ? "active" : "nav-list")} to="/Experts" > Our Expert</NavLink>
 
-                 { user ? <button onClick={logout} className='logoutButton'>LogOut</button>:
+                   {
+                        user && <NavLink className={({ isActive }) => (isActive ? "active" : "nav-list")} to="/manage" > manage</NavLink>
 
-                  <NavLink className={({ isActive }) => (isActive ? "active" : "nav-list")}
-                        to="/login" > Login</NavLink> }
+                    } 
+
+                    {
+                        user ? <button onClick={logout} className='logoutButton'>logout</button> :
+
+                            <NavLink className={({ isActive }) => (isActive ? "active" : "nav-list")}
+                                to="/login" > Login</NavLink>
+                    }
 
                 </div>
             </div>
