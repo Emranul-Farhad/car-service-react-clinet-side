@@ -9,6 +9,9 @@ import SerDetials from './pages/servicedetails/SerDetials';
 import Require from './Authentication/Require';
 import  { Toaster } from 'react-hot-toast';
 import Manage from './pages/manage/Manage';
+import Chekout from './pages/Checkout/Chekout';
+import OrderSubmit from './pages/ordesubmit/OrderSubmit';
+import Orders from './pages/Home/Orders/Orders';
 // import Experts from './Experts/Experts';
 
 function App() {
@@ -21,10 +24,16 @@ function App() {
         <Route path='/services' element={<Service></Service>} ></Route>
         <Route path='/login' element={<Login></Login>} ></Route>
         <Route path='/manage' element={<Manage></Manage>}  ></Route>
-        <Route path='/service-details/:id' element={
+        <Route path='/add-service' element={
           <Require> <SerDetials></SerDetials> </Require>
         } ></Route>
-        {/* <Route path='/Experts' element={<Experts></Experts>} ></Route> */}
+         <Route path='/chekout/:id' element={
+          <Require> <Chekout></Chekout> </Require>
+        } ></Route>
+         <Route path='/ordersubmit/:id' element={
+          <Require> <OrderSubmit></OrderSubmit> </Require>
+        } ></Route>
+       <Route path='/orders' element={<Orders></Orders>} ></Route>
       </Routes>
     </div>
   );

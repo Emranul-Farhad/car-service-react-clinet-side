@@ -29,7 +29,7 @@ const Services = (props) => {
                     </div> */}
                 </div>
                 <div className='servieBUTTON'>                   
-                    <button onClick={()=> navigates(`/service-details/${_id}`) } className='blog-btn' >Details </button>
+                    <button onClick={()=> navigates(`/chekout/${_id}`) } className='blog-btn' >Details </button>
                 </div>
             </div>
         </div>

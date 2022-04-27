@@ -10,18 +10,18 @@ const SerDetials = () => {
 
     const onSubmit = data => {
         console.log(data);
-        const url = "http://localhost:8000/services"
+        const url = "https://tranquil-woodland-91399.herokuapp.com/services"
         fetch(url, {
             method: 'POST', // or 'PUT'
             headers: {
-              'Content-Type': 'application/json',
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify(data),
-          })
-          .then(response => response.json())
-          .then(data => {
-            console.log('Success:', data);
-          })
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
 
     }
 
@@ -35,10 +35,10 @@ const SerDetials = () => {
 
                 <div>
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <input placeholder='service name' {...register("name" )} />
+                        <input placeholder='service name' {...register("name")} />
                         <input placeholder='service description' {...register("description")} />
                         <input placeholder='service price' {...register("price")} />
-                        <input placeholder='service img url' type="text" {...register("img" )} />
+                        <input placeholder='service img url' type="text" {...register("img")} />
                         <input placeholder='' type="submit" />
                     </form>
                 </div>

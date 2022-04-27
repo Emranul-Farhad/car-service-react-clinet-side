@@ -7,27 +7,27 @@ import Services from '../Services/Services';
 import './service.css'
 
 const Service = () => {
-const [loading] = useAuthState(auth)
-const [services , setSerives] = useState([])
- 
-useEffect( () => {
-        fetch("http://localhost:8000/services")
-        .then(res => res.json())
-        .then( data => setSerives(data))
-    }, [] )
+    const [loading] = useAuthState(auth)
+    const [services, setSerives] = useState([])
 
-if(loading){
-    <Loader></Loader>
-}
+    useEffect(() => {
+        fetch("https://tranquil-woodland-91399.herokuapp.com/services")
+            .then(res => res.json())
+            .then(data => setSerives(data))
+    }, [])
+
+    if (loading) {
+        <Loader></Loader>
+    }
 
     return (
         <div>
             <Header></Header>
-            <div className='serviceRow'>  
+            <div className='serviceRow'>
 
-            {
-                services.map( service => <Services service={service} key={service._id} ></Services> )
-            }
+                {
+                    services.map(service => <Services service={service} key={service._id} ></Services>)
+                }
 
             </div>
 
